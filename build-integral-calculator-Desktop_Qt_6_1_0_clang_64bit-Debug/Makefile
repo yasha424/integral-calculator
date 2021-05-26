@@ -593,9 +593,20 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 ####### Install
 
-install:  FORCE
+install_target: first FORCE
+	@test -d $(INSTALL_ROOT)/opt/integral-calculator/bin || mkdir -p $(INSTALL_ROOT)/opt/integral-calculator/bin
+	$(DEL_FILE) -r $(INSTALL_ROOT)/opt/integral-calculator/bin/integral-calculator.app
+	
+	$(QINSTALL) integral-calculator.app $(INSTALL_ROOT)/opt/integral-calculator/bin/integral-calculator.app
 
-uninstall:  FORCE
+uninstall_target: FORCE
+	-$(DEL_FILE) -r $(INSTALL_ROOT)/opt/integral-calculator/bin/integral-calculator.app
+	-$(DEL_DIR) $(INSTALL_ROOT)/opt/integral-calculator/bin/ 
+
+
+install: install_target  FORCE
+
+uninstall: uninstall_target  FORCE
 
 FORCE:
 

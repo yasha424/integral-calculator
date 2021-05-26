@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+//#include <QMediaPlayer>
+
 #include <iostream>
 #include <string>
 
@@ -26,11 +28,11 @@ private slots:
 
     void on_three_clicked();
 
-    void on_six_clicked();
-
     void on_four_clicked();
 
     void on_five_clicked();
+
+    void on_six_clicked();
 
     void on_seven_clicked();
 
@@ -56,7 +58,14 @@ private slots:
 
     void on_sqrt_clicked();
 
+    void on_delet_clicked();
+
+    bool is_operation_possible();
+
+    bool is_bracket_possible();
+
 private:
     Ui::MainWindow *ui;
+    int brackets;
 };
 #endif // MAINWINDOW_H
