@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-//#include <QMediaPlayer>
 
 #include <iostream>
 #include <string>
@@ -64,8 +63,15 @@ private slots:
 
     bool is_bracket_possible();
 
+    void on_dot_clicked();
+
+    void on_x_but_clicked();
+
+    bool is_x_possible();
+
 private:
     Ui::MainWindow *ui;
     int brackets;
+    bool dot;
 };
 #endif // MAINWINDOW_H
