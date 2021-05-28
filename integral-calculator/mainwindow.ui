@@ -817,10 +817,17 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(38, 36, 36);
-border-radius: 14px;</string>
+border-radius: 14px;
+padding: 22px;</string>
     </property>
     <property name="text">
      <string>0</string>
+    </property>
+    <property name="scaledContents">
+     <bool>false</bool>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
     </property>
    </widget>
    <widget class="QPushButton" name="delet">
@@ -853,7 +860,7 @@ border-radius: 14px;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 8);
+     <string notr="true">background-color: rgb(255, 159, 12);
 border-radius: 14px;</string>
     </property>
     <property name="text">
@@ -893,7 +900,7 @@ border-radius: 14px;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 8);
+     <string notr="true">background-color: rgb(255, 159, 12);
 border-radius: 14px;</string>
     </property>
     <property name="text">
@@ -930,7 +937,7 @@ border-radius: 14px;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 8);
+     <string notr="true">background-color: rgb(255, 159, 12);
 border-radius: 14px;</string>
     </property>
     <property name="text">
@@ -972,6 +979,120 @@ border-radius: 14px;</string>
     </property>
     <property name="text">
      <string>^</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="integral_sign">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>27</y>
+      <width>27</width>
+      <height>38</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(38, 36, 36);
+border-radius: 14px;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>images/integral-white.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lower_bound">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>64</y>
+      <width>27</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+background-color: rgb(38, 36, 36);
+border-width: 2px;
+border-color: rgb(0,0,0);
+border-style:inset;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="upper_bound">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>12</y>
+      <width>27</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 4px;
+background-color: rgb(38, 36, 36);
+border-width: 2px;
+border-color: rgb(0,0,0);
+border-style:inset;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>90</y>
+      <width>60</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="tabletTracking">
+     <bool>true</bool>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 0, 0);
+border-radius: 14px;</string>
+    </property>
+    <property name="text">
+     <string>AC</string>
     </property>
    </widget>
   </widget>

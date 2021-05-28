@@ -75,6 +75,10 @@ private slots:
 
     bool is_pow_possible();
 
+    void on_clear_2_clicked();
+
+    bool is_number(std::string);
+
 private:
     Ui::MainWindow *ui;
     int brackets;
