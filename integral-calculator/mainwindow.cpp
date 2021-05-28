@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     brackets = 0;
     dot = false;
-    QPixmap q("/Users/yakiv/Desktop/integral-calculator/build-integral-calculator-Desktop_Qt_6_1_0_clang_64bit-Debug/images/integral-white.png");
+    QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
     ui->integral_sign->setPixmap(q);
 //    ui->label->setTextInteractionFlags(Qt::TextSelectableByMouse);
 }

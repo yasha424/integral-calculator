@@ -16,6 +16,7 @@ public:
     explicit Result(QWidget *parent = nullptr, std::string str = "", double upper = 0, double lower = 0);
     ~Result();
 
+private slots:
     void test();
 
     void make_graph();

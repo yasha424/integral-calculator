@@ -7,10 +7,12 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    qcustomplot.cpp \
     result.cpp
 
 HEADERS += \
     mainwindow.h \
+    qcustomplot.h \
     result.h
 
 FORMS += \
