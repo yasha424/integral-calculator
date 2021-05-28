@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
+#include "result.h"
 
 #include <iostream>
 #include <string>
@@ -81,6 +83,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Result *r;
+
     int brackets;
     bool dot;
 };

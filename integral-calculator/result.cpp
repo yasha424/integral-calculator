@@ -1,14 +1,28 @@
 #include "result.h"
 #include "ui_result.h"
 
-result::result(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::result)
+Result::Result(QWidget *parent, std::string str, double lower, double upper) :
+    QDialog(parent),
+    ui(new Ui::Result)
 {
     ui->setupUi(this);
+    expression = str;
+    a = lower;
+    b = upper;
+
+
 }
 
-result::~result()
+Result::~Result()
 {
     delete ui;
+}
+
+
+void Result::test(){
+
+}
+
+void Result::make_graph(){
+
 }

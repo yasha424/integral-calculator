@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "result.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -47,10 +48,11 @@ bool MainWindow::is_pow_possible(){
 }
 
 bool MainWindow::is_number(std::string str){
-    for(int i = 0; i < str.size(); i++){
+    for(size_t i = 0; i < str.size(); i++){
         if(!std::isdigit(str[i]))
             return false;
     }
+    if (str.size() == 0) return false;
     return true;
 }
 
@@ -314,6 +316,12 @@ void MainWindow::on_equal_clicked()   /// to do!!!
     } else {
         double a = stod(lower), b = stod(upper);
         std::string expression = ui->label->text().toStdString();
+
+        r = new Result(this, expression, a, b);
+        r->setModal(true);
+        r->show();
+
+//        this->hide();
     }
 }
 
