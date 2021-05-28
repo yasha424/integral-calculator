@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     brackets = 0;
     dot = false;
+//    ui->label->setAlignment(Qt::AlignRight);
 }
 
 MainWindow::~MainWindow()
@@ -34,20 +35,33 @@ bool MainWindow::is_x_possible(){
             ui->label->text().endsWith("√") || ui->label->text().endsWith("("));
 }
 
+bool MainWindow::is_pow_possible(){
+    return (ui->label->text().endsWith("0") || ui->label->text().endsWith("1") ||
+            ui->label->text().endsWith("2") || ui->label->text().endsWith("3") ||
+            ui->label->text().endsWith("4") || ui->label->text().endsWith("5") ||
+            ui->label->text().endsWith("6") || ui->label->text().endsWith("7") ||
+            ui->label->text().endsWith("8") || ui->label->text().endsWith("9") ||
+            ui->label->text().endsWith("x"));
+}
+
+bool MainWindow::is_digit_possible(){
+    return (ui->label->text() != "0" && !ui->label->text().endsWith(")") && !ui->label->text().endsWith("x"));
+}
+
 void MainWindow::on_zero_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "0");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     }
 }
 
 void MainWindow::on_one_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "1");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("1");
@@ -56,9 +70,9 @@ void MainWindow::on_one_clicked()
 
 void MainWindow::on_two_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "2");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("2");
@@ -67,9 +81,9 @@ void MainWindow::on_two_clicked()
 
 void MainWindow::on_three_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "3");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("3");
@@ -78,9 +92,9 @@ void MainWindow::on_three_clicked()
 
 void MainWindow::on_four_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "4");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("4");
@@ -89,9 +103,9 @@ void MainWindow::on_four_clicked()
 
 void MainWindow::on_five_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "5");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("5");
@@ -100,9 +114,9 @@ void MainWindow::on_five_clicked()
 
 void MainWindow::on_six_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "6");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("6");
@@ -111,9 +125,9 @@ void MainWindow::on_six_clicked()
 
 void MainWindow::on_seven_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "7");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("7");
@@ -122,9 +136,9 @@ void MainWindow::on_seven_clicked()
 
 void MainWindow::on_eight_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "8");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("8");
@@ -133,9 +147,9 @@ void MainWindow::on_eight_clicked()
 
 void MainWindow::on_nine_clicked()
 {
-    if(ui->label->text() != "0" && !ui->label->text().endsWith(")")){
+    if(is_digit_possible()){
         ui->label->setText(ui->label->text() + "9");
-    } else if(ui->label->text().endsWith(")")){
+    } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     } else{
         ui->label->setText("9");
@@ -244,7 +258,7 @@ void MainWindow::on_sqrt_clicked()
 
 void MainWindow::on_dot_clicked()
 {
-    if(!dot && is_operation_possible() && !ui->label->text().endsWith(")")){
+    if(!dot && is_operation_possible() && !ui->label->text().endsWith(")") && !ui->label->text().endsWith("x")){
         ui->label->setText(ui->label->text() + ".");
         dot = true;
     } else{
@@ -265,8 +279,22 @@ void MainWindow::on_x_but_clicked(){
 
 void MainWindow::on_equal_clicked()   /// to do!!!
 {
-    if(!brackets){
-        std::cout << ui->label->text().toStdString() << std::endl;
+//    if(!brackets){
+//        std::cout << ui->label->text().toStdString() << std::endl;
+//    }
+//    QPalette pal = ui->equal->palette();
+//    pal.setColor(QPalette::Button, QColor(Qt::blue));
+//    ui->equal->setAutoFillBackground(true);
+//    ui->equal->setPalette(pal);
+//    ui->equal->update();
+}
+
+void MainWindow::on_pow_clicked()
+{
+    if(is_pow_possible() && !(ui->label->text().endsWith("0") && ui->label->text().size() == 1)){
+        ui->label->setText(ui->label->text() + "^");
+    } else{
+        QApplication::beep();
     }
 }
 

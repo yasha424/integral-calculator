@@ -69,6 +69,12 @@ private slots:
 
     bool is_x_possible();
 
+    bool is_digit_possible();
+
+    void on_pow_clicked();
+
+    bool is_pow_possible();
+
 private:
     Ui::MainWindow *ui;
     int brackets;
