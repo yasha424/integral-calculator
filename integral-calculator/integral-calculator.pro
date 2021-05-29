@@ -5,12 +5,14 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 CONFIG += c++17
 
 SOURCES += \
+    expression.cpp \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp \
     result.cpp
 
 HEADERS += \
+    expression.h \
     mainwindow.h \
     qcustomplot.h \
     result.h

@@ -203,6 +203,8 @@ void MainWindow::on_minus_clicked()
     if(ui->label->text() != "0" && is_operation_possible()){
         ui->label->setText(ui->label->text() + "-");
         dot = false;
+    } else if (ui->label->text() == "0") {
+        ui->label->setText("-");
     } else {
         QApplication::beep();
     }
@@ -311,7 +313,7 @@ void MainWindow::on_equal_clicked()   /// to do!!!
 {
     std::string upper = ui->lower_bound->text().toStdString(),
                 lower = ui->upper_bound->text().toStdString();
-    if(brackets != 0 || !is_number(upper) || !is_number(lower)){
+    if(brackets != 0 || !is_number(upper) || !is_number(lower) || !is_operation_possible()){
         QApplication::beep();
     } else {
         double a = stod(lower), b = stod(upper);

@@ -19,11 +19,14 @@
   <widget class="QCustomPlot" name="graphic" native="true">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>90</y>
+     <x>10</x>
+     <y>80</y>
      <width>300</width>
      <height>300</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
  </widget>
