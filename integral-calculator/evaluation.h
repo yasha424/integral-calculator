@@ -8,6 +8,10 @@
 
 double Riemann(Tree*, double, double, double, bool&);
 
+double Trapezoidal(Tree*, double, double, double, bool&);
+
+double Simpson(Tree*, double, double, double, bool&);
+
 
 
 #endif // EVALUATION_H

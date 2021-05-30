@@ -20,17 +20,15 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         result = Riemann(tree, a, b, 1e-7, defined);
 //        std::cout << result << std::endl;
     } else if (index == 1){
-
+        result = Trapezoidal(tree, a, b, 1e-7, defined);
     } else {
 
     }
 
     if (defined) {
-        std:: cout << result << std::endl;
+        std::cout << result << std::endl;
     }
 
-
-//    std::cout << index << std::endl;
 }
 
 Result::~Result()
