@@ -87,7 +87,11 @@ double Tree::evaluate(Node *node, double x){
     } else if (node->value == "*"){
         return r_sub_tree * l_sub_tree;
     } else if (node->value == "/"){
-        return r_sub_tree / l_sub_tree;
+        if (l_sub_tree != 0){
+            return r_sub_tree / l_sub_tree;
+        } else {
+            throw std::runtime_error("Math error: Attempted to divide by Zero\n");
+        }
     } else {
         return pow(r_sub_tree, l_sub_tree);
     }

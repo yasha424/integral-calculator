@@ -291,9 +291,9 @@ void MainWindow::on_clear_2_clicked() {
 }
 
 void MainWindow::on_equal_clicked() {
-    std::string upper = ui->lower_bound->text().toStdString(),
-                lower = ui->upper_bound->text().toStdString();
-    if(brackets != 0 || !is_number(upper) || !is_number(lower) || !is_operation_possible()){
+    std::string upper = ui->upper_bound->text().toStdString(),
+                lower = ui->lower_bound->text().toStdString();
+    if(brackets != 0 || !check_number(upper) || !check_number(lower) || !is_operation_possible()){
         QApplication::beep();
     } else {
         double a = stod(lower), b = stod(upper);
@@ -307,4 +307,16 @@ void MainWindow::on_equal_clicked() {
     }
 }
 
+bool MainWindow::check_number(std::string str){
+    int i = 0;
+    if (str[0] == '-') {
+        i++;
+    }
+    for ( ; i < str.size(); i++){
+        if (!isdigit(str[i])){
+            return false;
+        }
+    }
+    return true;
+}
 

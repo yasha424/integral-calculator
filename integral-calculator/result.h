@@ -4,8 +4,10 @@
 #pragma once
 #include <QDialog>
 #include <string>
+#include <stdexcept>
 #include "expression.h"
 #include "tree.h"
+#include "evaluation.h"
 
 namespace Ui {
 class Result;
@@ -29,6 +31,8 @@ private:
     Expression *expression;
     double a, b;
     Tree *tree;
+    double result;
+    bool defined;
 };
 
 #endif // RESULT_H

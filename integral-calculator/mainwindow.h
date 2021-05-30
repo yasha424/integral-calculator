@@ -82,6 +82,8 @@ private slots:
 
     bool is_number(std::string);
 
+    bool check_number(std::string);
+
 private:
     Ui::MainWindow *ui;
     Result *r;

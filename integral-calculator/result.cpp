@@ -9,14 +9,28 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
     expression = new Expression(str);
     a = lower;
     b = upper;
+    defined = true;
 //    make_graph();
 
     tree = new Tree(expression->getPost_fix());
 //    tree->traverse();
 //    std::cout << tree->evaluate(1) << std::endl;
 
+    if (index == 0){
+        result = Riemann(tree, a, b, 1e-7, defined);
+//        std::cout << result << std::endl;
+    } else if (index == 1){
 
-    std::cout << index << std::endl;
+    } else {
+
+    }
+
+    if (defined) {
+        std:: cout << result << std::endl;
+    }
+
+
+//    std::cout << index << std::endl;
 }
 
 Result::~Result()
