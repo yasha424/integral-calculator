@@ -1,17 +1,18 @@
 #include "result.h"
 #include "ui_result.h"
-#include "expression.h"
 
 Result::Result(QWidget *parent, std::string str, double lower, double upper) :
     QDialog(parent),
     ui(new Ui::Result)
 {
     ui->setupUi(this);
-    expression = str;
+    expression = new Expression(str);
     a = lower;
     b = upper;
     make_graph();
 
+
+//    std::cout << expression->getIn_fix()[0] << std::endl;
 }
 
 Result::~Result()

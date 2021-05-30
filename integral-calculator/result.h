@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <string>
+#include "expression.h"
 
 namespace Ui {
 class Result;
@@ -23,7 +24,7 @@ private slots:
 
 private:
     Ui::Result *ui;
-    std::string expression;
+    Expression *expression;
     double a, b;
 };
 
