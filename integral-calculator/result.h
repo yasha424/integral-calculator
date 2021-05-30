@@ -16,7 +16,7 @@ class Result : public QDialog
     Q_OBJECT
 
 public:
-    explicit Result(QWidget *parent = nullptr, std::string str = "", double upper = 0, double lower = 0);
+    explicit Result(QWidget *parent = nullptr, std::string str = "", double upper = 0, double lower = 0, int index = 0);
     ~Result();
 
 private slots:

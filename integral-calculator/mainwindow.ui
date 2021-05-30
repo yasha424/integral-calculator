@@ -1103,7 +1103,7 @@ border-style:inset;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 0, 0);
+     <string notr="true">background-color: rgb(88, 92, 94);
 border-radius: 14px;</string>
     </property>
     <property name="text">

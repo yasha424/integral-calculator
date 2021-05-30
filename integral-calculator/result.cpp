@@ -1,7 +1,7 @@
 #include "result.h"
 #include "ui_result.h"
 
-Result::Result(QWidget *parent, std::string str, double lower, double upper) :
+Result::Result(QWidget *parent, std::string str, double lower, double upper, int index) :
     QDialog(parent),
     ui(new Ui::Result)
 {
@@ -13,10 +13,10 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper) :
 
     tree = new Tree(expression->getPost_fix());
 //    tree->traverse();
-    std::cout << tree->evaluate(1) << std::endl;
+//    std::cout << tree->evaluate(1) << std::endl;
 
 
-//    std::cout << expression->getIn_fix()[0] << std::endl;
+    std::cout << index << std::endl;
 }
 
 Result::~Result()
