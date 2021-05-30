@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-//#include "result.h"
 
 #include <QApplication>
 

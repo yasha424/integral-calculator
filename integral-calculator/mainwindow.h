@@ -58,8 +58,6 @@ private slots:
 
     void on_closeBracket_clicked();
 
-    void on_sqrt_clicked();
-
     void on_delet_clicked();
 
     bool is_operation_possible();
@@ -83,6 +81,8 @@ private slots:
     bool is_number(std::string);
 
     bool check_number(std::string);
+
+    void on_pi_clicked();
 
 private:
     Ui::MainWindow *ui;

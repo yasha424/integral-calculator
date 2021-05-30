@@ -804,7 +804,7 @@ border-radius: 14px;</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>22</x>
+      <x>40</x>
       <y>10</y>
       <width>315</width>
       <height>70</height>
@@ -833,7 +833,7 @@ border-radius: 14px;</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(38, 36, 36);
 border-radius: 14px;
-padding: 12px;</string>
+</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -885,7 +885,7 @@ border-radius: 14px;</string>
      <string notr="true">buttonGroup_2</string>
     </attribute>
    </widget>
-   <widget class="QPushButton" name="sqrt">
+   <widget class="QPushButton" name="pi">
     <property name="geometry">
      <rect>
       <x>290</x>
@@ -919,14 +919,14 @@ border-radius: 14px;</string>
 border-radius: 14px;</string>
     </property>
     <property name="text">
-     <string>√</string>
+     <string>pi</string>
     </property>
    </widget>
    <widget class="QPushButton" name="x_but">
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>270</y>
+      <y>200</y>
       <width>60</width>
       <height>60</height>
      </rect>
@@ -956,14 +956,14 @@ border-radius: 14px;</string>
 border-radius: 14px;</string>
     </property>
     <property name="text">
-     <string>x</string>
+     <string>X</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pow">
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>200</y>
+      <y>270</y>
       <width>60</width>
       <height>60</height>
      </rect>
@@ -1225,7 +1225,7 @@ padding: 5px;
    <zorder>clear</zorder>
    <zorder>label</zorder>
    <zorder>delet</zorder>
-   <zorder>sqrt</zorder>
+   <zorder>pi</zorder>
    <zorder>x_but</zorder>
    <zorder>pow</zorder>
    <zorder>integral_sign</zorder>

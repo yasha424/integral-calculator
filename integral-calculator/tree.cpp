@@ -1,14 +1,13 @@
 #include "tree.h"
+#define pi 3.1415926535
 
 Tree::Tree(std::vector <std::string> str){
     std::stack <Node*> st;
     Node *top, *left, *right;
 
     for (size_t i = 0; i < str.size(); i++) {
-        // cout << i << endl;
         if (!is_operator(str[i][0])) {
             top = new_node(str[i]);
-//            std::cout << top->value << std::endl;
 
             st.push(top);
         } else {
@@ -20,10 +19,6 @@ Tree::Tree(std::vector <std::string> str){
             st.pop();
             top->left = left;
             top->right = right;
-
-//            std::cout << top->value << std::endl;
-//            std::cout << left->value << std::endl;
-//            std::cout << right->value << std::endl;
 
             st.push(top);
         }
@@ -72,6 +67,8 @@ double Tree::evaluate(Node *node, double x){
     if (!node->left && !node->right){
         if (node->value == "x")
             return x;
+        if (node->value == "pi")
+            return pi;
 
         return stod(node->value);
     }

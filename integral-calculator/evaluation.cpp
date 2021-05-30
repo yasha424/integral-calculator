@@ -1,7 +1,6 @@
 #include "evaluation.h"
 
 double Riemann(Tree *tree, double a, double b, double eps, bool &defined){
-//    Integral *integral = new Integral;
     if (defined){
         double left, right, mid;
         try {
@@ -12,7 +11,6 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined){
             std:: cout << e.what() << std::endl;
             defined = false;
         }
-    //    std::cout << left << ", " << right << ", " << mid << ", " << eps << std::endl;
         if (abs(left + right - mid) <= eps){
             return left + right;
         }

@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent)
     dot = false;
     QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
     ui->integral_sign->setPixmap(q);
-//    ui->label->setTextInteractionFlags(Qt::TextSelectableByMouse);
 }
 
 MainWindow::~MainWindow() {
@@ -244,17 +243,6 @@ void MainWindow::on_closeBracket_clicked() {
     }
 }
 
-void MainWindow::on_sqrt_clicked() {
-    if(is_bracket_possible() || ui->label->text().endsWith("(")){
-        ui->label->setText(ui->label->text() + "√");
-        dot = false;
-    } else if((ui->label->text() == "0" && ui->label->text().size() == 1)){
-        ui->label->setText("√");
-    } else {
-        QApplication::beep();
-    }
-}
-
 void MainWindow::on_dot_clicked() {
     if(!dot && is_operation_possible() && !ui->label->text().endsWith(")") && !ui->label->text().endsWith("x")){
         ui->label->setText(ui->label->text() + ".");
@@ -282,8 +270,6 @@ void MainWindow::on_pow_clicked() {
     }
 }
 
-
-
 void MainWindow::on_clear_2_clicked() {
     ui->label->setText("0");
     dot = false;
@@ -302,13 +288,11 @@ void MainWindow::on_equal_clicked() {
         r = new Result(this, expression, a, b, ui->choose->currentIndex());
         r->setModal(true);
         r->show();
-
-//        this->hide();
     }
 }
 
 bool MainWindow::check_number(std::string str){
-    int i = 0;
+    size_t i = 0;
     if (str[0] == '-') {
         i++;
     }
@@ -318,5 +302,15 @@ bool MainWindow::check_number(std::string str){
         }
     }
     return true;
+}
+
+void MainWindow::on_pi_clicked() {
+    if(is_x_possible()){
+        ui->label->setText(ui->label->text() + "pi");
+    } else if(ui->label->text().endsWith("0") && ui->label->text().size() == 1){
+        ui->label->setText("pi");
+    } else {
+        QApplication::beep();
+    }
 }
 
