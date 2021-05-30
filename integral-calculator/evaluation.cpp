@@ -41,3 +41,26 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined){
     return 0;
 }
 
+double Simpson(Tree *tree, double a, double b, double eps, bool &defined){
+    if (defined){
+        double left, right, mid;
+
+        try {
+            left = sub_simpson(tree, a, a + (b - a) / 2);
+            right = sub_simpson(tree, a + (b - a) / 2, b);
+            mid = sub_simpson(tree, a, b);
+        }  catch (std::runtime_error& e) {
+            std:: cout << e.what() << std::endl;
+            defined = false;
+        }
+        if (abs(left + right - mid) <= eps){
+            return left + right;
+        }
+        return Simpson(tree, a, (b + a) / 2, eps/2, defined) + Simpson(tree, (b + a) / 2, b, eps/2, defined);
+    }
+    return 0;
+}
+
+double sub_simpson(Tree *tree, double a, double b){
+    return ((tree->evaluate(a) + 4 * tree->evaluate(a + (b - a) / 2) + tree->evaluate(b)) * (b - a) / 6);
+}

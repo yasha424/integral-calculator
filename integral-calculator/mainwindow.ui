@@ -1172,6 +1172,7 @@ background-color: rgb(38, 36, 36);
 border-width: 2px;
 border-color: rgb(0,0,0);
 border-style:inset;
+padding: 5px;
 </string>
     </property>
     <property name="maxVisibleItems">

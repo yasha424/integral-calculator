@@ -20,9 +20,9 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         result = Riemann(tree, a, b, 1e-7, defined);
 //        std::cout << result << std::endl;
     } else if (index == 1){
-        result = Trapezoidal(tree, a, b, 1e-7, defined);
+        result = Trapezoidal(tree, a, b, 1e-10, defined);
     } else {
-
+        result = Simpson(tree, a, b, 1e-22, defined);
     }
 
     if (defined) {

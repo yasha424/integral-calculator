@@ -12,6 +12,6 @@ double Trapezoidal(Tree*, double, double, double, bool&);
 
 double Simpson(Tree*, double, double, double, bool&);
 
-
+double sub_simpson(Tree*, double, double);
 
 #endif // EVALUATION_H
