@@ -9,13 +9,15 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp \
-    result.cpp
+    result.cpp \
+    tree.cpp
 
 HEADERS += \
     expression.h \
     mainwindow.h \
     qcustomplot.h \
-    result.h
+    result.h \
+    tree.h
 
 FORMS += \
     mainwindow.ui \

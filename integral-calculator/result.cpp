@@ -9,7 +9,11 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper) :
     expression = new Expression(str);
     a = lower;
     b = upper;
-    make_graph();
+//    make_graph();
+
+    tree = new Tree(expression->getPost_fix());
+//    tree->traverse();
+    std::cout << tree->evaluate(1) << std::endl;
 
 
 //    std::cout << expression->getIn_fix()[0] << std::endl;

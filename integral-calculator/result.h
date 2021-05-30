@@ -1,9 +1,11 @@
 #ifndef RESULT_H
 #define RESULT_H
 
+#pragma once
 #include <QDialog>
 #include <string>
 #include "expression.h"
+#include "tree.h"
 
 namespace Ui {
 class Result;
@@ -26,6 +28,7 @@ private:
     Ui::Result *ui;
     Expression *expression;
     double a, b;
+    Tree *tree;
 };
 
 #endif // RESULT_H

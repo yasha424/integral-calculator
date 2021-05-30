@@ -29,13 +29,14 @@ bool MainWindow::is_operation_possible(){
 bool MainWindow::is_bracket_possible(){
     return (ui->label->text().endsWith("*") || ui->label->text().endsWith("/") ||
             ui->label->text().endsWith("+") || ui->label->text().endsWith("-") ||
-            ui->label->text().endsWith("√"));
+            ui->label->text().endsWith("√") || ui->label->text().endsWith("^"));
 }
 
 bool MainWindow::is_x_possible(){
     return (ui->label->text().endsWith("*") || ui->label->text().endsWith("/") ||
             ui->label->text().endsWith("+") || ui->label->text().endsWith("-") ||
-            ui->label->text().endsWith("√") || ui->label->text().endsWith("("));
+            ui->label->text().endsWith("√") || ui->label->text().endsWith("(") ||
+            ui->label->text().endsWith("^"));
 }
 
 bool MainWindow::is_pow_possible(){
@@ -44,7 +45,7 @@ bool MainWindow::is_pow_possible(){
             ui->label->text().endsWith("4") || ui->label->text().endsWith("5") ||
             ui->label->text().endsWith("6") || ui->label->text().endsWith("7") ||
             ui->label->text().endsWith("8") || ui->label->text().endsWith("9") ||
-            ui->label->text().endsWith("x"));
+            ui->label->text().endsWith("x") || ui->label->text().endsWith(")"));
 }
 
 bool MainWindow::is_number(std::string str){
@@ -180,6 +181,10 @@ void MainWindow::on_delet_clicked()
     if(!(ui->label->text().size() == 1 && ui->label->text() == "0")){
         if(ui->label->text().endsWith(".")){
             dot = false;
+        } else if (ui->label->text().endsWith(")")){
+            brackets++;
+        } else if (ui->label->text().endsWith("(")){
+            brackets--;
         }
         ui->label->setText(ui->label->text().remove(ui->label->text().size()-1, 1));
     }
