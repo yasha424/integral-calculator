@@ -33,6 +33,8 @@ private:
     Tree *tree;
     double result;
     bool defined;
+    size_t depth, calls;
+
 };
 
 #endif // RESULT_H

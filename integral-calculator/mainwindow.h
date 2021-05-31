@@ -84,6 +84,8 @@ private slots:
 
     void on_pi_clicked();
 
+    void check_length();
+
 private:
     Ui::MainWindow *ui;
     Result *r;

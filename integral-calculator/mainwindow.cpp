@@ -17,8 +17,15 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
+void MainWindow::check_length(){
+    if(ui->label->text().size() % 23 == 22){
+        ui->label->setText(ui->label->text() + '\n');
+    }
+}
+
+
 bool MainWindow::is_operation_possible() {
-    return !(ui->label->text().endsWith("+") || ui->label->text().endsWith("√") ||
+    return !(ui->label->text().endsWith("+") || ui->label->text().endsWith("^") ||
              ui->label->text().endsWith("-") || ui->label->text().endsWith("*") ||
              ui->label->text().endsWith("/") || ui->label->text().endsWith(".") ||
              ui->label->text().endsWith("("));
@@ -65,6 +72,7 @@ void MainWindow::on_zero_clicked() {
     } else if(ui->label->text().endsWith(")") || ui->label->text().endsWith("x")){
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_one_clicked() {
@@ -75,6 +83,7 @@ void MainWindow::on_one_clicked() {
     } else {
         ui->label->setText("1");
     }
+    check_length();
 }
 
 void MainWindow::on_two_clicked() {
@@ -85,6 +94,7 @@ void MainWindow::on_two_clicked() {
     } else {
         ui->label->setText("2");
     }
+    check_length();
 }
 
 void MainWindow::on_three_clicked() {
@@ -95,6 +105,7 @@ void MainWindow::on_three_clicked() {
     } else {
         ui->label->setText("3");
     }
+    check_length();
 }
 
 void MainWindow::on_four_clicked() {
@@ -105,6 +116,7 @@ void MainWindow::on_four_clicked() {
     } else {
         ui->label->setText("4");
     }
+    check_length();
 }
 
 void MainWindow::on_five_clicked() {
@@ -115,6 +127,7 @@ void MainWindow::on_five_clicked() {
     } else {
         ui->label->setText("5");
     }
+    check_length();
 }
 
 void MainWindow::on_six_clicked() {
@@ -125,6 +138,7 @@ void MainWindow::on_six_clicked() {
     } else {
         ui->label->setText("6");
     }
+    check_length();
 }
 
 void MainWindow::on_seven_clicked() {
@@ -135,6 +149,7 @@ void MainWindow::on_seven_clicked() {
     } else {
         ui->label->setText("7");
     }
+    check_length();
 }
 
 void MainWindow::on_eight_clicked() {
@@ -145,6 +160,7 @@ void MainWindow::on_eight_clicked() {
     } else {
         ui->label->setText("8");
     }
+    check_length();
 }
 
 void MainWindow::on_nine_clicked() {
@@ -155,6 +171,7 @@ void MainWindow::on_nine_clicked() {
     } else {
         ui->label->setText("9");
     }
+    check_length();
 }
 
 void MainWindow::on_clear_clicked() {
@@ -164,6 +181,11 @@ void MainWindow::on_clear_clicked() {
 }
 
 void MainWindow::on_delet_clicked() {
+    if (ui->label->text().endsWith('\n')){
+        ui->label->setText(ui->label->text().remove(ui->label->text().size()-2, 2));
+        return;
+    }
+
     if(!(ui->label->text().size() == 1 && ui->label->text() == "0")){
         if(ui->label->text().endsWith(".")){
             dot = false;
@@ -186,6 +208,7 @@ void MainWindow::on_plus_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_minus_clicked() {
@@ -197,6 +220,7 @@ void MainWindow::on_minus_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_divide_clicked() {
@@ -206,6 +230,7 @@ void MainWindow::on_divide_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_mult_clicked() {
@@ -215,6 +240,7 @@ void MainWindow::on_mult_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_openBracket_clicked() {
@@ -228,6 +254,7 @@ void MainWindow::on_openBracket_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_closeBracket_clicked() {
@@ -241,6 +268,7 @@ void MainWindow::on_closeBracket_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_dot_clicked() {
@@ -250,6 +278,7 @@ void MainWindow::on_dot_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_x_but_clicked() {
@@ -260,6 +289,7 @@ void MainWindow::on_x_but_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_pow_clicked() {
@@ -268,6 +298,7 @@ void MainWindow::on_pow_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 
 void MainWindow::on_clear_2_clicked() {
@@ -282,8 +313,17 @@ void MainWindow::on_equal_clicked() {
     if(brackets != 0 || !check_number(upper) || !check_number(lower) || !is_operation_possible()){
         QApplication::beep();
     } else {
+
+//        std::cout << ui->label->text().toStdString();
+
         double a = stod(lower), b = stod(upper);
         std::string expression = ui->label->text().toStdString();
+
+        for (size_t i = 0; i < expression.size(); i++){
+            if (expression[i] == '\n'){
+                expression.erase(i, 1);
+            }
+        }
 
         r = new Result(this, expression, a, b, ui->choose->currentIndex());
         r->setModal(true);
@@ -312,5 +352,6 @@ void MainWindow::on_pi_clicked() {
     } else {
         QApplication::beep();
     }
+    check_length();
 }
 

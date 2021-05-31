@@ -1,6 +1,6 @@
 #include "evaluation.h"
 
-double Riemann(Tree *tree, double a, double b, double eps, bool &defined){
+double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
         try {
@@ -12,14 +12,18 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined){
             defined = false;
         }
         if (abs(left + right - mid) <= eps){
+            if (level < stat){
+                level = stat;
+            }
             return left + right;
         }
-        return Riemann(tree, a, (b + a) / 2, eps/2, defined) + Riemann(tree, (b + a) / 2, b, eps/2, defined);
+        calls++;
+        return Riemann(tree, a, (b + a) / 2, eps/2, defined, stat+1, level, calls) + Riemann(tree, (b + a) / 2, b, eps/2, defined, stat+1, level, calls);
     }
     return 0;
 }
 
-double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined){
+double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
 
@@ -32,14 +36,18 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined){
             defined = false;
         }
         if (abs(left + right - mid) <= eps){
+            if (level < stat){
+                level = stat;
+            }
             return left + right;
         }
-        return Trapezoidal(tree, a, (b + a) / 2, eps/2, defined) + Trapezoidal(tree, (b + a) / 2, b, eps/2, defined);
+        calls++;
+        return Trapezoidal(tree, a, (b + a) / 2, eps/2, defined, stat+1, level, calls) + Trapezoidal(tree, (b + a) / 2, b, eps/2, defined, stat+1, level, calls);
     }
     return 0;
 }
 
-double Simpson(Tree *tree, double a, double b, double eps, bool &defined){
+double Simpson(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
 
@@ -52,9 +60,13 @@ double Simpson(Tree *tree, double a, double b, double eps, bool &defined){
             defined = false;
         }
         if (abs(left + right - mid) <= eps){
+            if (level < stat){
+                level = stat;
+            }
             return left + right;
         }
-        return Simpson(tree, a, (b + a) / 2, eps/2, defined) + Simpson(tree, (b + a) / 2, b, eps/2, defined);
+        calls++;
+        return Simpson(tree, a, (b + a) / 2, eps/2, defined, stat+1, level, calls) + Simpson(tree, (b + a) / 2, b, eps/2, defined, stat+1, level, calls);
     }
     return 0;
 }

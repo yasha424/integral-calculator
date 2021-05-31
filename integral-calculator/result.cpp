@@ -10,19 +10,20 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
     a = lower;
     b = upper;
     defined = true;
-
+    calls = 1;
+    depth = 1;
     tree = new Tree(expression->getPost_fix());
 
     if (index == 0){
-        result = Riemann(tree, a, b, 1e-7, defined);
+        result = Riemann(tree, a, b, 1e-5, defined, 1, depth, calls);
     } else if (index == 1){
-        result = Trapezoidal(tree, a, b, 1e-10, defined);
+        result = Trapezoidal(tree, a, b, 1e-11, defined, 1, depth, calls);
     } else {
-        result = Simpson(tree, a, b, 1e-22, defined);
+        result = Simpson(tree, a, b, 1e-14, defined, 1, depth, calls);
     }
 
     if (defined) {
-        std::cout << result << std::endl;
+        ui->label->setText(QString::number(result) + ",  " + QString::number(depth) + ",  " + QString::number(calls));
     }
 
 }
@@ -34,7 +35,6 @@ Result::~Result()
 
 
 void Result::test(){
-//    expression = to_postfix(expression);
 }
 
 void Result::make_graph(){
