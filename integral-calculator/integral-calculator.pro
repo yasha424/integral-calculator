@@ -5,6 +5,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 CONFIG += c++17
 
 SOURCES += \
+    enterfile.cpp \
     evaluation.cpp \
     expression.cpp \
     main.cpp \
@@ -14,6 +15,7 @@ SOURCES += \
     tree.cpp
 
 HEADERS += \
+    enterfile.h \
     evaluation.h \
     expression.h \
     mainwindow.h \
@@ -22,6 +24,7 @@ HEADERS += \
     tree.h
 
 FORMS += \
+    enterfile.ui \
     mainwindow.ui \
     result.ui
 

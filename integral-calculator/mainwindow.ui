@@ -807,7 +807,7 @@ border-radius: 14px;</string>
      <rect>
       <x>40</x>
       <y>10</y>
-      <width>315</width>
+      <width>301</width>
       <height>70</height>
      </rect>
     </property>
@@ -1204,6 +1204,29 @@ padding: 5px;
      </property>
     </item>
    </widget>
+   <widget class="QPushButton" name="file">
+    <property name="geometry">
+     <rect>
+      <x>316</x>
+      <y>14</y>
+      <width>30</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px;
+border-color: rgb(88, 92, 94);
+border-width: 1px;
+border-style:inset;
+</string>
+    </property>
+    <property name="text">
+     <string>•••</string>
+    </property>
+   </widget>
    <zorder>label_2</zorder>
    <zorder>zero</zorder>
    <zorder>dot</zorder>
@@ -1234,6 +1257,7 @@ padding: 5px;
    <zorder>upper_bound</zorder>
    <zorder>clear_2</zorder>
    <zorder>choose</zorder>
+   <zorder>file</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

@@ -307,6 +307,30 @@ void MainWindow::on_clear_2_clicked() {
     brackets = 0;
 }
 
+bool MainWindow::check_number(std::string str){
+    size_t i = 0;
+    if (str[0] == '-') {
+        i++;
+    }
+    for ( ; i < str.size(); i++){
+        if (!isdigit(str[i]) && str[i] != '.'){
+            return false;
+        }
+    }
+    return true;
+}
+
+void MainWindow::on_pi_clicked() {
+    if(is_x_possible()){
+        ui->label->setText(ui->label->text() + "pi");
+    } else if(ui->label->text().endsWith("0") && ui->label->text().size() == 1){
+        ui->label->setText("pi");
+    } else {
+        QApplication::beep();
+    }
+    check_length();
+}
+
 void MainWindow::on_equal_clicked() {
     std::string upper = ui->upper_bound->text().toStdString(),
                 lower = ui->lower_bound->text().toStdString();
@@ -324,34 +348,39 @@ void MainWindow::on_equal_clicked() {
                 expression.erase(i, 1);
             }
         }
+        if (expression[0] == '-'){
+            expression = '0' + expression;
+        }
 
-        r = new Result(this, expression, a, b, ui->choose->currentIndex());
-        r->setModal(true);
-        r->show();
-    }
-}
-
-bool MainWindow::check_number(std::string str){
-    size_t i = 0;
-    if (str[0] == '-') {
-        i++;
-    }
-    for ( ; i < str.size(); i++){
-        if (!isdigit(str[i])){
-            return false;
+        if (a < b){
+            r = new Result(this, expression, a, b, ui->choose->currentIndex());
+            r->setWindowTitle("Result");
+            r->setModal(true);
+            r->show();
+        } else {
+            QApplication::beep();
         }
     }
-    return true;
 }
 
-void MainWindow::on_pi_clicked() {
-    if(is_x_possible()){
-        ui->label->setText(ui->label->text() + "pi");
-    } else if(ui->label->text().endsWith("0") && ui->label->text().size() == 1){
-        ui->label->setText("pi");
+
+void MainWindow::on_file_clicked()
+{
+    std::string lower = ui->lower_bound->text().toStdString();
+    std::string upper = ui->upper_bound->text().toStdString();
+
+    if (check_number(lower) && check_number(upper)){
+        double a = stod(lower);
+        double b = stod(upper);
+        if (a < b){
+            enter = new EnterFile(this, a, b, ui->choose->currentIndex());
+            enter->setModal(true);
+            enter->show();
+        } else {
+            QApplication::beep();
+        }
     } else {
-        QApplication::beep();
+         QApplication::beep();
     }
-    check_length();
 }
 

@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include "result.h"
+#include "enterfile.h"
 
 #include <iostream>
 #include <string>
@@ -86,9 +87,12 @@ private slots:
 
     void check_length();
 
+    void on_file_clicked();
+
 private:
     Ui::MainWindow *ui;
     Result *r;
+    EnterFile *enter;
 
     int brackets;
     bool dot;
