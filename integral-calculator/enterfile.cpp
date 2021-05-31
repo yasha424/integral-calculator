@@ -75,7 +75,7 @@ bool EnterFile::check_expression(std::string str){
             close_brack_possible = false;
             op_possible = false;
             x = false;
-        } else if (str[i] == 'p'){
+        } else if (str[i] == 'p' && str[i+1] == 'i'){
             i++;
             close_brack_possible = true;
             op_possible = true;
@@ -84,7 +84,7 @@ bool EnterFile::check_expression(std::string str){
             op_possible = true;
             close_brack_possible = true;
             brack_possible = false;
-        } else if (isdigit(str[i])){
+        } else if (isdigit(str[i]) && !x){
             op_possible = true;
             close_brack_possible = true;
             x = false;

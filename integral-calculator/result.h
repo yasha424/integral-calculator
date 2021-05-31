@@ -27,6 +27,8 @@ private slots:
 
     void make_graph();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Result *ui;
     Expression *expression;
