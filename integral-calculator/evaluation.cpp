@@ -4,9 +4,10 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t
     if (defined){
         double left, right, mid;
         try {
-            left = tree->evaluate(a) * (b - a) / 2;
-            right = tree->evaluate((a + b) / 2) * (b - a) / 2;
-            mid = tree->evaluate((double)(a + b) / 2) * (b-a);
+            left = tree->evaluate(a + (b - a) / 4) * (b - a) / 2;
+            right = tree->evaluate(a + (b - a) / 4 * 3) * (b - a) / 2;
+            mid = tree->evaluate((a + b) / 2) * (b - a);
+
         } catch (std::runtime_error& e) {
             std::cout << e.what() << std::endl;
             defined = false;
@@ -28,9 +29,9 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, si
         double left, right, mid;
 
         try {
-            left = tree->evaluate(a + (b - a) / 4) * (b - a) / 2;
-            right = tree->evaluate(a + ((b - a) / 4) * 3) * (b - a) / 2;
-            mid = tree->evaluate(a + (b - a) / 2) * (b - a);
+            left = (tree->evaluate(a) + tree->evaluate((a + b) / 2)) / 2 * (b - a) / 2;
+            right = (tree->evaluate(b) + tree->evaluate((a + b) / 2)) / 2 * (b - a) / 2;
+            mid = (tree->evaluate(a) + tree->evaluate(b)) / 2 * (b - a);
         }  catch (std::runtime_error& e) {
             std::cout << e.what() << std::endl;
             defined = false;

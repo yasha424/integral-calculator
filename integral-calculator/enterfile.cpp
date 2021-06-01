@@ -123,7 +123,7 @@ bool EnterFile::check_expression(std::string str){
             return false;
         }
     }
-    return brackets == 0;
+    return (brackets == 0 && op_possible);
 }
 
 bool EnterFile::is_operator(char ch){

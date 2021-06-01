@@ -19,9 +19,9 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 
         if (defined){
             if (index == 0){
-                result = Riemann(tree, a, b, 1e-5, defined, 1, depth, calls);
+                result = Riemann(tree, a, b, 1e-7, defined, 1, depth, calls);
             } else if (index == 1){
-                result = Trapezoidal(tree, a, b, 1e-9, defined, 1, depth, calls);
+                result = Trapezoidal(tree, a, b, 1e-7, defined, 1, depth, calls);
             } else {
                 result = Simpson(tree, a, b, 1e-11, defined, 1, depth, calls);
             }
@@ -30,7 +30,7 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 
                 make_graph();
 
-                ui->integral->setText("f(x) = " + QString::number(result));
+                ui->integral->setText("f(x)dx = " + QString::number(result));
                 ui->lower->setText(QString::number(a));
                 ui->upper->setText(QString::number(b));
 
