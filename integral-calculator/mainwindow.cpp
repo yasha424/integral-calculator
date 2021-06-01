@@ -309,6 +309,8 @@ void MainWindow::on_clear_2_clicked() {
 
 bool MainWindow::check_number(std::string str){
     size_t i = 0;
+    if(str.size() == 0)
+        return false;
     if (str[0] == '-') {
         i++;
     }

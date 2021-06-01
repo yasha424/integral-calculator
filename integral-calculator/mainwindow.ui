@@ -64,7 +64,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -104,7 +105,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>.</string>
@@ -147,7 +149,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>=</string>
@@ -187,7 +190,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>6</string>
@@ -227,7 +231,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>5</string>
@@ -267,7 +272,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>4</string>
@@ -307,7 +313,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>3</string>
@@ -347,7 +354,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>2</string>
@@ -387,7 +395,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>1</string>
@@ -427,7 +436,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>9</string>
@@ -467,7 +477,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>8</string>
@@ -507,7 +518,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(57, 57, 57);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>7</string>
@@ -547,7 +559,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>*</string>
@@ -593,7 +606,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>-</string>
@@ -633,7 +647,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>+</string>
@@ -673,7 +688,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>/</string>
@@ -713,7 +729,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(89, 93, 95);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>)</string>
@@ -753,7 +770,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(89, 93, 95);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>(</string>
@@ -793,7 +811,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(89, 93, 95);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>C</string>
@@ -834,7 +853,7 @@ border-radius: 14px;</string>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(38, 36, 36);
 border-radius: 14px;
-</string>
+color: white;</string>
     </property>
     <property name="text">
      <string>0</string>
@@ -877,7 +896,8 @@ border-radius: 14px;
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>⌫</string>
@@ -917,7 +937,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>pi</string>
@@ -954,7 +975,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>X</string>
@@ -991,7 +1013,8 @@ border-radius: 14px;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 159, 12);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>^</string>
@@ -1043,7 +1066,8 @@ border-radius: 14px;
 background-color: rgb(38, 36, 36);
 border-width: 2px;
 border-color: rgb(0,0,0);
-border-style:inset;</string>
+border-style:inset;
+color: white;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1068,7 +1092,8 @@ border-style:inset;</string>
 background-color: rgb(38, 36, 36);
 border-width: 2px;
 border-color: rgb(0,0,0);
-border-style:inset;</string>
+border-style:inset;
+color: white;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1105,7 +1130,8 @@ border-style:inset;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(88, 92, 94);
-border-radius: 14px;</string>
+border-radius: 14px;
+color: white;</string>
     </property>
     <property name="text">
      <string>AC</string>
@@ -1170,8 +1196,6 @@ padding: 22px;</string>
     <property name="styleSheet">
      <string notr="true">border-radius: 9px;
 background-color: rgb(38, 36, 36);
-border-width: 2px;
-border-color: rgb(0,0,0);
 border-style:inset;
 padding: 5px;
 </string>
@@ -1221,6 +1245,7 @@ padding: 5px;
 border-color: rgb(88, 92, 94);
 border-width: 1px;
 border-style:inset;
+color: white;
 </string>
     </property>
     <property name="text">

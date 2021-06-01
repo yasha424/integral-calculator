@@ -121,6 +121,9 @@ border-style:inset;</string>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -148,6 +151,9 @@ border-style:inset;</string>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -170,6 +176,9 @@ border-style:inset;</string>
    <property name="cursor">
     <cursorShape>IBeamCursor</cursorShape>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
    <property name="text">
     <string/>
    </property>
@@ -191,7 +200,8 @@ border-style:inset;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(0, 129, 0);
-border-radius: 6px;</string>
+border-radius: 6px;
+color: white;</string>
    </property>
    <property name="text">
     <string>Зберегти результат у файл</string>
@@ -217,7 +227,8 @@ border-radius: 6px;</string>
    <property name="styleSheet">
     <string notr="true">border-radius: 6px;
 background-color: rgb(0,0,0);
-border-style:inset;</string>
+border-style:inset;
+color: white;</string>
    </property>
    <property name="text">
     <string/>
@@ -249,7 +260,8 @@ border-style:inset;</string>
    <property name="styleSheet">
     <string notr="true">border-radius: 6px;
 background-color: rgb(0,0,0);
-border-style:inset;</string>
+border-style:inset;
+color: white;</string>
    </property>
    <property name="text">
     <string/>

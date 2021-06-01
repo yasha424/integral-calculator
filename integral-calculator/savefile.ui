@@ -27,7 +27,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(38, 36, 36);
-border-radius: 8px;</string>
+border-radius: 8px;
+color: white;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -41,7 +42,8 @@ border-radius: 8px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(0, 125, 0);
-border-radius: 7px;</string>
+border-radius: 7px;
+color: white;</string>
    </property>
    <property name="text">
     <string>Ентер</string>
@@ -60,6 +62,9 @@ border-radius: 7px;</string>
     <font>
      <pointsize>12</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
    </property>
    <property name="text">
     <string>Будь ласка, введіть ім'я файлу,  куди хочете зберегти результат</string>
