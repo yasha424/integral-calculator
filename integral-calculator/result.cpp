@@ -56,28 +56,29 @@ void Result::test(){
 void Result::make_graph(){
       QVector<double> x(101), y(101);
       double step = (b - a) / 100;
+      double curr = a;
       double min = DBL_MAX, max = -DBL_MAX;
-      int ind = 0;
-      for (double i = a; i < b && ind <= 100; i += step)
+      for (int i = 0; i <= 100; i++)
       {
-        x[ind] = i;
-        y[ind] = tree->evaluate(i);
-        if (min > y[ind]){
-            min = y[ind];
+        x[i] = curr;
+        y[i] = tree->evaluate(curr);
+        if (min > y[i]){
+            min = y[i];
         }
-        if (max < y[ind]){
-            max = y[ind];
+        if (max < y[i]){
+            max = y[i];
         }
-        ind++;
+        curr += step;
       }
       ui->graphic->addGraph();
+//      ui->graphic->
       ui->graphic->graph(0)->setData(x, y);
       ui->graphic->graph(0)->setPen(QPen(Qt::blue));
       ui->graphic->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
       ui->graphic->xAxis->setLabel("x");
       ui->graphic->yAxis->setLabel("y");
-      ui->graphic->xAxis->setRange(a - 1, b + 1);
-      ui->graphic->yAxis->setRange(min - 1, max + 1);
+      ui->graphic->xAxis->setRange(a , b);
+      ui->graphic->yAxis->setRange(min, max);
       ui->graphic->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
 
