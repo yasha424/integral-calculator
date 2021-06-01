@@ -17,28 +17,30 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
         ui->label_2->setPixmap(q);
 
-        if (index == 0){
-            result = Riemann(tree, a, b, 1e-5, defined, 1, depth, calls);
-        } else if (index == 1){
-            result = Trapezoidal(tree, a, b, 1e-9, defined, 1, depth, calls);
+        if (defined){
+            if (index == 0){
+                result = Riemann(tree, a, b, 1e-5, defined, 1, depth, calls);
+            } else if (index == 1){
+                result = Trapezoidal(tree, a, b, 1e-9, defined, 1, depth, calls);
+            } else {
+                result = Simpson(tree, a, b, 1e-11, defined, 1, depth, calls);
+            }
+
+            if (defined) {
+
+                make_graph();
+
+                ui->integral->setText("f(x) = " + QString::number(result));
+                ui->lower->setText(QString::number(a));
+                ui->upper->setText(QString::number(b));
+
+                ui->depth->setText(" Глибина рекурсії: " + QString::number(depth));
+                ui->divided->setText(" Кількість розбиття підінтегральної функціії: \n " + QString::number(calls));
+            } else {
+                undefined();
+            }
         } else {
-            result = Simpson(tree, a, b, 1e-11, defined, 1, depth, calls);
-        }
-
-        if (defined) {
-//            ui->label->setText(QString::number(result) + ",  " + QString::number(depth) + ",  " + QString::number(calls));
-
-
-            make_graph();
-
-            ui->integral->setText("f(x) = " + QString::number(result));
-            ui->lower->setText(QString::number(a));
-            ui->upper->setText(QString::number(b));
-
-            ui->depth->setText(" Глибина рекурсії: " + QString::number(depth));
-            ui->divided->setText(" Кількість розбиття підінтегральної функціії: \n " + QString::number(calls));
-
-
+            undefined();
         }
 }
 
@@ -81,6 +83,35 @@ void Result::make_graph(){
 
 void Result::on_pushButton_clicked()
 {
-    // to do
+    s = new saveFile(this, std::to_string(result), expression->getExpression());
+    s->setWindowTitle("Save in file");
+    s->setModal(true);
+    s->show();
+}
+
+void Result::check_bounds(){
+    try {
+        tree->evaluate(a);
+        tree->evaluate(b);
+    }  catch (std::runtime_error& e) {
+        std::cout << e.what() << std::endl;
+        defined = false;
+    }
+}
+
+void Result::undefined(){
+    ui->depth->hide();
+    ui->divided->hide();
+    ui->graphic->hide();
+    ui->integral->hide();
+    ui->pushButton->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+
+    QLabel *undefined = new QLabel(this);
+    undefined->setGeometry(QRect(165, 120, 300, 100));  // 10,10,30,80    165, 100, 465, 100
+    undefined->setStyleSheet("QLabel { background-color : red; color : blue; }");
+    undefined->setText("undefinide");
 }
 

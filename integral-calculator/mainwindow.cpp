@@ -212,7 +212,7 @@ void MainWindow::on_plus_clicked() {
 }
 
 void MainWindow::on_minus_clicked() {
-    if(ui->label->text() != "0" && is_operation_possible()){
+    if((ui->label->text() != "0" && is_operation_possible()) || ui->label->text().endsWith("(")){
         ui->label->setText(ui->label->text() + "-");
         dot = false;
     } else if (ui->label->text() == "0") {
@@ -340,14 +340,24 @@ void MainWindow::on_equal_clicked() {
         double a = stod(lower), b = stod(upper);
         std::string expression = ui->label->text().toStdString();
 
+        std::cout << expression << std::endl;
+
         for (size_t i = 0; i < expression.size(); i++){
-            if (expression[i] == '\n'){
+            if (expression[i] == '\n') {
                 expression.erase(i, 1);
             }
         }
         if (expression[0] == '-'){
             expression = '0' + expression;
         }
+
+        for (size_t i = 0; i < expression.size() - 1; i++){
+            if (expression[i] == '(' && expression[i+1] == '-'){
+                expression.insert(i+1, "0");
+            }
+        }
+        std::cout << expression << std::endl;
+
 
         if (a < b){
             r = new Result(this, expression, a, b, ui->choose->currentIndex());

@@ -9,6 +9,7 @@
 #include "expression.h"
 #include "tree.h"
 #include "evaluation.h"
+#include "savefile.h"
 
 namespace Ui {
 class Result;
@@ -29,8 +30,13 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void check_bounds();
+
+    void undefined();
+
 private:
     Ui::Result *ui;
+    saveFile *s;
     Expression *expression;
     double a, b;
     Tree *tree;

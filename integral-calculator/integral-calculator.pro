@@ -12,6 +12,7 @@ SOURCES += \
     mainwindow.cpp \
     qcustomplot.cpp \
     result.cpp \
+    savefile.cpp \
     tree.cpp
 
 HEADERS += \
@@ -21,12 +22,14 @@ HEADERS += \
     mainwindow.h \
     qcustomplot.h \
     result.h \
+    savefile.h \
     tree.h
 
 FORMS += \
     enterfile.ui \
     mainwindow.ui \
-    result.ui
+    result.ui \
+    savefile.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

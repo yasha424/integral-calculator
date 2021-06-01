@@ -261,6 +261,16 @@ border-style:inset;</string>
     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
    </property>
   </widget>
+  <zorder>label</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_2</zorder>
+  <zorder>lower</zorder>
+  <zorder>upper</zorder>
+  <zorder>integral</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>depth</zorder>
+  <zorder>divided</zorder>
+  <zorder>graphic</zorder>
  </widget>
  <customwidgets>
   <customwidget>
