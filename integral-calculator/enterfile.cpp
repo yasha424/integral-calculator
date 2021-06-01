@@ -20,7 +20,7 @@ EnterFile::~EnterFile()
 void EnterFile::on_pushButton_clicked()
 {
     file_name = ui->line->text().toStdString();
-    if (file_name.compare(file_name.size() - 3, 3, "txt") == 0 && check_file(file_name)){
+    if (file_name.compare(file_name.size() - 3, 3, "txt") == 0 && check_file(file_name) && file_name.size() != 0){
         std::ifstream in(file_name);
         getline(in, expression);
         if (check_expression(expression)){
