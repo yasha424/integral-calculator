@@ -340,7 +340,7 @@ void MainWindow::on_equal_clicked() {
         double a = stod(lower), b = stod(upper);
         std::string expression = ui->label->text().toStdString();
 
-        std::cout << expression << std::endl;
+//        std::cout << expression << std::endl;
 
         for (size_t i = 0; i < expression.size(); i++){
             if (expression[i] == '\n') {
@@ -356,7 +356,7 @@ void MainWindow::on_equal_clicked() {
                 expression.insert(i+1, "0");
             }
         }
-        std::cout << expression << std::endl;
+//        std::cout << expression << std::endl;
 
 
         if (a < b){

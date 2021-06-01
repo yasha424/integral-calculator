@@ -111,7 +111,8 @@ void Result::undefined(){
 
     QLabel *undefined = new QLabel(this);
     undefined->setGeometry(QRect(165, 120, 300, 100));  // 10,10,30,80    165, 100, 465, 100
-    undefined->setStyleSheet("QLabel { background-color : red; color : blue; }");
-    undefined->setText("undefinide");
+    undefined->setStyleSheet("QLabel { border-radius: 8px; border-color: rgb(88, 92, 94); border-width: 2px; border-style:inset; }");
+    undefined->setAlignment(Qt::AlignCenter);
+    undefined->setText("На даному проміжку інтеграл невизначений");
 }
 
