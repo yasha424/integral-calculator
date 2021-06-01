@@ -1,7 +1,7 @@
 #include "result.h"
 #include "ui_result.h"
 
-Result::Result(QWidget *parent, std::string str, double lower, double upper, int index, bool ex) :
+Result::Result(QWidget *parent, std::string str, double lower, double upper, int index) :
     QDialog(parent),
     ui(new Ui::Result)
 {
