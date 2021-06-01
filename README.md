@@ -1,1 +1,1 @@
-# just simple calculator for intagrals for yours purposes
+# just simple calculator for intagrals written in qt
