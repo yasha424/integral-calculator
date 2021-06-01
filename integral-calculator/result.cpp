@@ -72,14 +72,10 @@ void Result::make_graph(){
       ui->graphic->graph(0)->setData(x, y);
       ui->graphic->graph(0)->setPen(QPen(Qt::blue));
       ui->graphic->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
-
       ui->graphic->xAxis->setLabel("x");
       ui->graphic->yAxis->setLabel("y");
-//      std::cout << min << ", " << max << std::endl;
       ui->graphic->xAxis->setRange(a - 1, b + 1);
       ui->graphic->yAxis->setRange(min - 1, max + 1);
-//      ui->graphic->replot();
-
       ui->graphic->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
 

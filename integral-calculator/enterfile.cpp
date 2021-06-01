@@ -23,10 +23,7 @@ void EnterFile::on_pushButton_clicked()
     if (file_name.compare(file_name.size() - 3, 3, "txt") == 0 && check_file(file_name)){
         std::ifstream in(file_name);
         getline(in, expression);
-//        std::cout << "ok" << std::endl;
-
         if (check_expression(expression)){
-            std::cout << expression << std::endl;
             r = new Result(this, expression, a, b, index);
             r->setWindowTitle("Result");
             r->setModal(true);
@@ -58,7 +55,6 @@ bool EnterFile::check_expression(std::string str){
     bool x = false;
     bool dot = false;
     for (size_t i = 0; i < str.size(); i++){
-//        std::cout << str[i];
         if (str[i] == '(' && brack_possible){
             brackets++;
             close_brack_possible = true;
@@ -70,7 +66,6 @@ bool EnterFile::check_expression(std::string str){
             op_possible = true;
             x = true;
         } else if (is_operator(str[i]) && i != 0 && op_possible){
-//            std::cout << "operator" << std::endl;
             brack_possible = true;
             close_brack_possible = false;
             op_possible = false;
@@ -90,33 +85,27 @@ bool EnterFile::check_expression(std::string str){
             x = false;
             while ((!is_operator(str[i]) && str[i] != 'x' && str[i] != 'p' && str[i] != ')') && i < str.size()){
                 if (!isdigit(str[i]) && str[i] != '.'){
-                    std::cout << str[i] << std::endl;
                     return false;
                 } else if (str[i] == '.' && dot){
                     return false;
                 }
                 i++;
             }
+            i--;
         } else {
-               std::cout << "false\n";
             return false;
         }
         if (brackets < 0){
-//            std::cout << brack_possible << std::endl;
             return false;
         }
-//        std::cout << x << std::endl;
     }
-//    std::cout << std::endl << brackets << std::endl;
     return brackets == 0;
 }
 
 bool EnterFile::is_operator(char ch){
-//    std::cout << ch << std::endl;
 
     if (ch == '*' || ch == '/' || ch == '+' ||
             ch == '-' || ch == '^'){
-//        std::cout << "aaaaaaaaaaa" << std::endl;
         return true;
     }
     return false;

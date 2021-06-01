@@ -337,9 +337,6 @@ void MainWindow::on_equal_clicked() {
     if(brackets != 0 || !check_number(upper) || !check_number(lower) || !is_operation_possible()){
         QApplication::beep();
     } else {
-
-//        std::cout << ui->label->text().toStdString();
-
         double a = stod(lower), b = stod(upper);
         std::string expression = ui->label->text().toStdString();
 
