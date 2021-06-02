@@ -824,15 +824,19 @@ color: white;</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>45</x>
       <y>10</y>
-      <width>301</width>
+      <width>295</width>
       <height>70</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>22</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
      </font>
     </property>
     <property name="cursor">

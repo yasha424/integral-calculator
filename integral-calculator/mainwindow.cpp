@@ -9,21 +9,29 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     brackets = 0;
     dot = false;
+    font_size = 20;
     QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
     ui->integral_sign->setPixmap(q);
 }
 
 MainWindow::~MainWindow() {
     delete ui;
+    delete r;
+    delete enter;
 }
 
+// перевіряє довжину, і якщо вона завелика переносить строку на новий рядок
 void MainWindow::check_length(){
     if(ui->label->text().size() % 23 == 22){
         ui->label->setText(ui->label->text() + '\n');
+        QFont font = ui->label->font();
+        font.setPointSize(font_size);
+        ui->label->setFont(font);
+        font_size -= 3;
     }
 }
 
-
+//перевірака на можливість операції
 bool MainWindow::is_operation_possible() {
     return !(ui->label->text().endsWith("+") || ui->label->text().endsWith("^") ||
              ui->label->text().endsWith("-") || ui->label->text().endsWith("*") ||
@@ -31,12 +39,14 @@ bool MainWindow::is_operation_possible() {
              ui->label->text().endsWith("("));
 }
 
+//перевіряє чи можлива дужка
 bool MainWindow::is_bracket_possible() {
     return (ui->label->text().endsWith("*") || ui->label->text().endsWith("/") ||
             ui->label->text().endsWith("+") || ui->label->text().endsWith("-") ||
             ui->label->text().endsWith("√") || ui->label->text().endsWith("^"));
 }
 
+//перевіряє чи можливий ікс
 bool MainWindow::is_x_possible() {
     return (ui->label->text().endsWith("*") || ui->label->text().endsWith("/") ||
             ui->label->text().endsWith("+") || ui->label->text().endsWith("-") ||
@@ -44,6 +54,7 @@ bool MainWindow::is_x_possible() {
             ui->label->text().endsWith("^"));
 }
 
+//перевіряє чи можливо поставити знак степеню
 bool MainWindow::is_pow_possible() {
     return (ui->label->text().endsWith("0") || ui->label->text().endsWith("1") ||
             ui->label->text().endsWith("2") || ui->label->text().endsWith("3") ||
@@ -53,6 +64,7 @@ bool MainWindow::is_pow_possible() {
             ui->label->text().endsWith("x") || ui->label->text().endsWith(")"));
 }
 
+//перевіряє чи вхідна строка є числом
 bool MainWindow::is_number(std::string str) {
     for(size_t i = 0; i < str.size(); i++){
         if(!std::isdigit(str[i]))
@@ -62,9 +74,12 @@ bool MainWindow::is_number(std::string str) {
     return true;
 }
 
+//перевіряж чи можливо поставити цифру
 bool MainWindow::is_digit_possible() {
     return (ui->label->text() != "0" && !ui->label->text().endsWith(")") && !ui->label->text().endsWith("x"));
 }
+
+//наступні функції просто додають до лейбла символи
 
 void MainWindow::on_zero_clicked() {
     if(is_digit_possible()){
@@ -174,12 +189,19 @@ void MainWindow::on_nine_clicked() {
     check_length();
 }
 
+//функція для стирання всього виразу
 void MainWindow::on_clear_clicked() {
     ui->label->setText("0");
     dot = false;
     brackets = 0;
+
+    font_size = 22;
+    QFont font = ui->label->font();
+    font.setPointSize(font_size);
+    ui->label->setFont(font);
 }
 
+//функція для стирання останнього символу
 void MainWindow::on_delet_clicked() {
     if (ui->label->text().endsWith('\n')){
         ui->label->setText(ui->label->text().remove(ui->label->text().size()-2, 2));
@@ -301,12 +323,19 @@ void MainWindow::on_pow_clicked() {
     check_length();
 }
 
+//теж саме, що й on_clear_clicked()
 void MainWindow::on_clear_2_clicked() {
     ui->label->setText("0");
     dot = false;
     brackets = 0;
+
+    font_size = 22;
+    QFont font = ui->label->font();
+    font.setPointSize(font_size);
+    ui->label->setFont(font);
 }
 
+//перевіряє верхню та нижню межі на правильність
 bool MainWindow::check_number(std::string str){
     size_t i = 0;
     if(str.size() == 0)
@@ -333,6 +362,7 @@ void MainWindow::on_pi_clicked() {
     check_length();
 }
 
+//перевіряє весь вираз на правильність і, якщо він правильний, відкриває вікно із результатом
 void MainWindow::on_equal_clicked() {
     std::string upper = ui->upper_bound->text().toStdString(),
                 lower = ui->lower_bound->text().toStdString();
@@ -367,7 +397,7 @@ void MainWindow::on_equal_clicked() {
     }
 }
 
-
+//відкриває вікно для вводу назви файлу, з якого треба зчитати вираз
 void MainWindow::on_file_clicked()
 {
     std::string lower = ui->lower_bound->text().toStdString();

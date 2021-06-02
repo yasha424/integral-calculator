@@ -27,6 +27,11 @@ Tree::Tree(std::vector <std::string> str){
     st.pop();
 }
 
+Tree::~Tree(){
+    delete root;
+}
+
+// створення нового вузла
 Node* Tree::new_node(std::string str){
     Node *node = new Node;
     node->left = node->right = NULL;
@@ -63,6 +68,7 @@ double Tree::evaluate(double x){
     return evaluate(root, x);
 }
 
+// функція для обрахунку дерева у точці х
 double Tree::evaluate(Node *node, double x){
     if (!node->left && !node->right){
         if (node->value == "x")

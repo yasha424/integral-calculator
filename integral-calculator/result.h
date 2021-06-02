@@ -37,12 +37,12 @@ private slots:
 private:
     Ui::Result *ui;
     saveFile *s;
-    Expression *expression;
-    double a, b;
-    Tree *tree;
-    double result;
-    bool defined;
-    size_t depth, calls;
+    Expression *expression;  // клас виразу
+    double a, b; // межі
+    Tree *tree; // дерево виразу
+    double result; // результат
+    bool defined; // інформація про тн, чи інтеграл визначений
+    size_t depth, calls; // глибина рекурсіх та к-ість розбиття графіку
 
 };
 

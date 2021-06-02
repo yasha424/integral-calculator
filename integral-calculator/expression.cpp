@@ -32,6 +32,7 @@ bool Expression::is_operator(char ch){
     return false;
 }
 
+//робить з інфіксної строки інфіксний вектор строк
 std::vector <std::string> Expression::make_in_fix(std::string exp){
     std::string tmp;
     int start = 0;
@@ -53,6 +54,7 @@ std::vector <std::string> Expression::make_in_fix(std::string exp){
     return res;
 }
 
+//послідовність операцій
 int Expression::pemdas(std::string str){
     if (str == "+" || str == "-") {
         return 1;
@@ -65,6 +67,7 @@ int Expression::pemdas(std::string str){
     }
 }
 
+//із вхідного інфіксного виразу у вигляду вектору строк, робить постофіксний вектор строк для подальших обчислень
 std::vector <std::string> Expression::make_post_fix(std::vector <std::string> exp){
     std::vector <std::string> res;
     std::stack <std::string> st;

@@ -17,6 +17,8 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
         ui->label_2->setPixmap(q);
 
+        check_bounds();
+
         if (defined){
             if (index == 0){
                 result = Riemann(tree, a, b, 1e-7, defined, 1, depth, calls);
@@ -47,12 +49,15 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 Result::~Result()
 {
     delete ui;
+    delete s;
+    delete expression;
+    delete tree;
 }
-
 
 void Result::test(){
 }
 
+//функція, в якій обраховується 100 точок графіка, для побудови графіка
 void Result::make_graph(){
       QVector<double> x(101), y(101);
       double step = (b - a) / 100;
@@ -82,14 +87,16 @@ void Result::make_graph(){
       ui->graphic->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
 
+//функція, для відкриття вікна із введеням назви файли, у який користувач хоче записати результат
 void Result::on_pushButton_clicked()
 {
-    s = new saveFile(this, std::to_string(result), expression->getExpression());
+    s = new saveFile(this, std::to_string(result), expression->getExpression(), calls, depth);
     s->setWindowTitle("Save in file");
     s->setModal(true);
     s->show();
 }
 
+//якщо інтеграл невизначений на краях, то він навіть не почне обраховуватись
 void Result::check_bounds(){
     try {
         tree->evaluate(a);
@@ -100,6 +107,7 @@ void Result::check_bounds(){
     }
 }
 
+//якщо інтеграл невизначений
 void Result::undefined(){
     ui->depth->hide();
     ui->divided->hide();
@@ -111,7 +119,7 @@ void Result::undefined(){
     ui->label_3->hide();
 
     QLabel *undefined = new QLabel(this);
-    undefined->setGeometry(QRect(165, 120, 300, 100));  // 10,10,30,80    165, 100, 465, 100
+    undefined->setGeometry(QRect(165, 120, 300, 100));
     undefined->setStyleSheet("QLabel { border-radius: 8px;"
                                       "border-color: rgb(88, 92, 94);"
                                       "border-width: 2px;"

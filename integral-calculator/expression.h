@@ -29,9 +29,9 @@ public:
     int pemdas(std::string);
 
 private:
-    std::string expression;
-    std::vector <std::string> in_fix;
-    std::vector <std::string> post_fix;
+    std::string expression;  // вираз у вигляді строки
+    std::vector <std::string> in_fix; // вираз у інфіксному вигляді вектору строк
+    std::vector <std::string> post_fix; // вираз постфіксному вигляді вектору строк
 };
 
 #endif // EXPRESSION_H

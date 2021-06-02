@@ -27,11 +27,10 @@ private slots:
 
 private:
     Ui::EnterFile *ui;
-    double a, b;
-    int index;
-    std::string file_name, expression;
-    Result *r;
-
+    double a, b; // межі інтегрування
+    int index; // миндекс методу обрахунку
+    std::string file_name, expression; // назва файлу та вираз
+    Result *r; // вікно із результатом
 };
 
 #endif // ENTERFILE_H

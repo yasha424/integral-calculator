@@ -15,12 +15,14 @@ EnterFile::EnterFile(QWidget *parent, double lower, double upper, int ind) :
 EnterFile::~EnterFile()
 {
     delete ui;
+    delete r;
 }
 
+//перевіряє чи файл можливо відкрити та чи вираз у ньому є правильним
 void EnterFile::on_pushButton_clicked()
 {
     file_name = ui->line->text().toStdString();
-    if (file_name.compare(file_name.size() - 3, 3, "txt") == 0 && check_file(file_name) && file_name.size() != 0){
+    if (file_name.size() != 0 && file_name.compare(file_name.size() - 3, 3, "txt") == 0 && check_file(file_name)){
         std::ifstream in(file_name);
         getline(in, expression);
         if (check_expression(expression)){
@@ -46,6 +48,7 @@ void EnterFile::on_pushButton_clicked()
     }
 }
 
+
 bool EnterFile::check_file(std::string str){
     std::ifstream in(str);
 
@@ -57,6 +60,8 @@ bool EnterFile::check_file(std::string str){
     return false;
 }
 
+
+//перевірка на те, чи формула у файлі є валідною
 bool EnterFile::check_expression(std::string str){
     int brackets = 0;
     bool brack_possible = true;
@@ -126,6 +131,7 @@ bool EnterFile::check_expression(std::string str){
     return (brackets == 0 && op_possible);
 }
 
+//перевірка чи є символ оператором
 bool EnterFile::is_operator(char ch){
 
     if (ch == '*' || ch == '/' || ch == '+' ||

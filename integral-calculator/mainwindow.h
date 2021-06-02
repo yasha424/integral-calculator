@@ -94,7 +94,8 @@ private:
     Result *r;
     EnterFile *enter;
 
-    int brackets;
-    bool dot;
+    int brackets; // к-іст ьвідкритих дужок
+    bool dot; // чи поставлена в числі крапка (двох крапок в одному числі бути не може)
+    int font_size; // розмір шрифту
 };
 #endif // MAINWINDOW_H

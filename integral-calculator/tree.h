@@ -19,6 +19,8 @@ class Tree
 public:
     Tree(){}
 
+    ~Tree();
+
     Tree(std::vector <std::string>);
 
     bool is_operator(char);

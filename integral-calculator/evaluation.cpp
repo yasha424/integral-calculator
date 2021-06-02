@@ -1,5 +1,6 @@
 #include "evaluation.h"
 
+//алгоритм для обчислення інтегралу методом прямокутників
 double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
@@ -24,6 +25,7 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t
     return 0;
 }
 
+//алгоритм для обчислення інтегралу методом трапецій
 double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
@@ -48,6 +50,7 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, si
     return 0;
 }
 
+//алгоритм для обчислення інтегралу методом Сімпсона
 double Simpson(Tree *tree, double a, double b, double eps, bool &defined, size_t stat, size_t &level, size_t &calls){
     if (defined){
         double left, right, mid;
@@ -72,6 +75,7 @@ double Simpson(Tree *tree, double a, double b, double eps, bool &defined, size_t
     return 0;
 }
 
+//власне сама формула Сімпсона
 double sub_simpson(Tree *tree, double a, double b){
     return ((tree->evaluate(a) + 4 * tree->evaluate(a + (b - a) / 2) + tree->evaluate(b)) * (b - a) / 6);
 }
