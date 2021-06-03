@@ -10,14 +10,15 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         a = lower;
         b = upper;
         defined = true;
-        calls = 1;
+        calls = 1; // кількість виклику функції для обрахунку інтеграла (к-ість розбиття функції)
         depth = 1;
         tree = new Tree(expression->getPost_fix());
+        s = NULL;
 
         QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
         ui->label_2->setPixmap(q);
 
-        check_bounds();
+        check_bounds(); // перевірка меж функції
 
         if (defined){
             if (index == 0){
@@ -30,7 +31,7 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 
             if (defined) {
 
-                make_graph();
+                make_graph(); //побудова графіка
 
                 ui->integral->setText("f(x)dx = " + QString::number(result));
                 ui->lower->setText(QString::number(a));
@@ -39,19 +40,22 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
                 ui->depth->setText(" Глибина рекурсії: " + QString::number(depth));
                 ui->divided->setText(" Кількість розбиття підінтегральної функціії: \n " + QString::number(calls));
             } else {
-                undefined();
+                undefined(); // якщо інтеграл невизначений
             }
         } else {
-            undefined();
+            undefined(); // теж саме
         }
 }
 
 Result::~Result()
 {
     delete ui;
-    delete s;
     delete expression;
     delete tree;
+
+    if (s){
+        delete s;
+    }
 }
 
 void Result::test(){

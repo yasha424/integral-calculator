@@ -31,7 +31,7 @@ public:
 private:
     std::string expression;  // вираз у вигляді строки
     std::vector <std::string> in_fix; // вираз у інфіксному вигляді вектору строк
-    std::vector <std::string> post_fix; // вираз постфіксному вигляді вектору строк
+    std::vector <std::string> post_fix; // вираз постфіксному вигляді вектору стро
 };
 
 #endif // EXPRESSION_H

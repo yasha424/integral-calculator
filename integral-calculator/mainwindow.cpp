@@ -12,12 +12,20 @@ MainWindow::MainWindow(QWidget *parent)
     font_size = 20;
     QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
     ui->integral_sign->setPixmap(q);
+    r = NULL;
+    enter = NULL;
 }
 
 MainWindow::~MainWindow() {
     delete ui;
-    delete r;
-    delete enter;
+
+    if (r){
+        delete r;
+    }
+
+    if (enter){
+        delete enter;
+    }
 }
 
 // перевіряє довжину, і якщо вона завелика переносить строку на новий рядок

@@ -10,12 +10,16 @@ EnterFile::EnterFile(QWidget *parent, double lower, double upper, int ind) :
     a = lower;
     b = upper;
     index = ind;
+    r = NULL;
 }
 
 EnterFile::~EnterFile()
 {
     delete ui;
-    delete r;
+
+    if (r){
+        delete r;
+    }
 }
 
 //перевіряє чи файл можливо відкрити та чи вираз у ньому є правильним
