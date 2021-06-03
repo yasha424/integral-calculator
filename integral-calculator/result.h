@@ -24,8 +24,6 @@ public:
     ~Result();
 
 private slots:
-    void test();
-
     void make_graph();
 
     void on_pushButton_clicked();

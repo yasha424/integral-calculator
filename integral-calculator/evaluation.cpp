@@ -10,7 +10,6 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t
             mid = tree->evaluate((a + b) / 2) * (b - a);
 
         } catch (std::runtime_error& e) {
-            std::cout << e.what() << std::endl;
             defined = false;
         }
         if (abs(left + right - mid) <= eps){
@@ -35,7 +34,6 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, si
             right = (tree->evaluate(b) + tree->evaluate((a + b) / 2)) / 2 * (b - a) / 2;
             mid = (tree->evaluate(a) + tree->evaluate(b)) / 2 * (b - a);
         }  catch (std::runtime_error& e) {
-            std::cout << e.what() << std::endl;
             defined = false;
         }
         if (abs(left + right - mid) <= eps){
@@ -60,7 +58,6 @@ double Simpson(Tree *tree, double a, double b, double eps, bool &defined, size_t
             right = sub_simpson(tree, a + (b - a) / 2, b);
             mid = sub_simpson(tree, a, b);
         }  catch (std::runtime_error& e) {
-            std::cout << e.what() << std::endl;
             defined = false;
         }
         if (abs(left + right - mid) <= eps){

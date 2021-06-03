@@ -31,6 +31,8 @@ FORMS += \
     result.ui \
     savefile.ui
 
+ICON = calculator_icon.png
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

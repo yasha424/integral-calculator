@@ -69,7 +69,8 @@ bool MainWindow::is_pow_possible() {
             ui->label->text().endsWith("4") || ui->label->text().endsWith("5") ||
             ui->label->text().endsWith("6") || ui->label->text().endsWith("7") ||
             ui->label->text().endsWith("8") || ui->label->text().endsWith("9") ||
-            ui->label->text().endsWith("x") || ui->label->text().endsWith(")"));
+            ui->label->text().endsWith("x") || ui->label->text().endsWith(")") ||
+            ui->label->text().endsWith("i"));
 }
 
 //перевіряє чи вхідна строка є числом
@@ -223,6 +224,8 @@ void MainWindow::on_delet_clicked() {
             brackets++;
         } else if (ui->label->text().endsWith("(")){
             brackets--;
+        } else if (ui->label->text().endsWith("i")){
+            ui->label->setText(ui->label->text().remove(ui->label->text().size()-1, 1));
         }
         ui->label->setText(ui->label->text().remove(ui->label->text().size()-1, 1));
     }

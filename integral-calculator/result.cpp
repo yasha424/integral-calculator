@@ -18,7 +18,7 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
         QPixmap q("/Users/yakiv/Desktop/integral-calculator/integral-calculator/images/integral-white.png");
         ui->label_2->setPixmap(q);
 
-        check_bounds(); // перевірка меж функції
+//        check_bounds(); // перевірка меж функції
 
         if (defined){
             if (index == 0){
@@ -26,7 +26,7 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
             } else if (index == 1){
                 result = Trapezoidal(tree, a, b, 1e-7, defined, 1, depth, calls);
             } else {
-                result = Simpson(tree, a, b, 1e-11, defined, 1, depth, calls);
+                result = Simpson(tree, a, b, 1e-9, defined, 1, depth, calls);
             }
 
             if (defined) {
@@ -58,9 +58,6 @@ Result::~Result()
     }
 }
 
-void Result::test(){
-}
-
 //функція, в якій обраховується 100 точок графіка, для побудови графіка
 void Result::make_graph(){
       QVector<double> x(101), y(101);
@@ -86,8 +83,8 @@ void Result::make_graph(){
       ui->graphic->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
       ui->graphic->xAxis->setLabel("x");
       ui->graphic->yAxis->setLabel("y");
-      ui->graphic->xAxis->setRange(a , b);
-      ui->graphic->yAxis->setRange(min, max);
+      ui->graphic->xAxis->setRange(a-1, b+1);
+      ui->graphic->yAxis->setRange(min-1, max+1);
       ui->graphic->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
 
