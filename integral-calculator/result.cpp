@@ -33,7 +33,8 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 
                 make_graph(); //побудова графіка
 
-                ui->integral->setText("f(x)dx = " + QString::number(result));
+//                ui->integral->setText("f(x)dx = " + QString::number(result));
+                ui->integral->setText("f(x)dx = " + QString::number(result, 10, 8));
                 ui->lower->setText(QString::number(a));
                 ui->upper->setText(QString::number(b));
 

@@ -3,6 +3,7 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
+CONFIG += app_bundle
 
 SOURCES += \
     enterfile.cpp \
@@ -30,8 +31,6 @@ FORMS += \
     mainwindow.ui \
     result.ui \
     savefile.ui
-
-ICON = calculator_icon.png
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

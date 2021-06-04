@@ -96,7 +96,8 @@ double Tree::evaluate(Node *node, double x){
             throw std::runtime_error("Math error: Attempted to divide by Zero");
         }
     } else {
-        if ((r_sub_tree < 0 && l_sub_tree != (int)l_sub_tree) || (r_sub_tree == 0 && l_sub_tree < -1)){
+        if ((r_sub_tree < 0 && l_sub_tree != (int)l_sub_tree) || (r_sub_tree == 0 && l_sub_tree < -1) || l_sub_tree > 50 ||
+             (abs(r_sub_tree) > 20 && abs(l_sub_tree) > 5) || (abs(r_sub_tree) > 10 && abs(l_sub_tree) > 25)){
             throw std::runtime_error("Math error: Negative number in square root");
         } else {
             return pow(r_sub_tree, l_sub_tree);

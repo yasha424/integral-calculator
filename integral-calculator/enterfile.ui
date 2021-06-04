@@ -70,7 +70,7 @@ color: white;</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>160</x>
      <y>65</y>
      <width>80</width>
      <height>30</height>
