@@ -40,6 +40,14 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
 
                 ui->depth->setText(" Глибина рекурсії: " + QString::number(depth));
                 ui->divided->setText(" Кількість розбиття підінтегральної функціії: \n " + QString::number(calls));
+
+                if (depth == 22){
+                    ui->depth->setStyleSheet("QLabel { border-radius: 6px;"
+                                                      "background-color: rgb(0,0,0);"
+                                                      "border-style:inset;"
+                                                      "color: red; }");
+                }
+
             } else {
                 undefined(); // якщо інтеграл невизначений
             }
@@ -92,7 +100,7 @@ void Result::make_graph(){
 //функція, для відкриття вікна із введеням назви файли, у який користувач хоче записати результат
 void Result::on_pushButton_clicked()
 {
-    s = new saveFile(this, std::to_string(result), expression->getExpression(), calls, depth);
+    s = new saveFile(this, std::to_string(result), expression->getExpression(), calls, depth, a, b);
     s->setWindowTitle("Save in file");
     s->setModal(true);
     s->show();

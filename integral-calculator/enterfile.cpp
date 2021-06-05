@@ -22,6 +22,14 @@ EnterFile::~EnterFile()
     }
 }
 
+std::string EnterFile::before_equal(std::string str){
+    size_t i = 0;
+    while (str[i] != '=' && i < str.size()){
+        i++;
+    }
+    return str.substr(0, i-1);
+}
+
 //перевіряє чи файл можливо відкрити та чи вираз у ньому є правильним
 void EnterFile::on_pushButton_clicked()
 {
@@ -29,6 +37,7 @@ void EnterFile::on_pushButton_clicked()
     if (file_name.size() != 0 && file_name.compare(file_name.size() - 4, 4, ".txt") == 0 && check_file(file_name)){
         std::ifstream in(file_name);
         getline(in, expression);
+        expression = before_equal(expression);
         if (check_expression(expression)){
             if (expression[0] == '-'){
                 expression = "0" + expression;
@@ -144,4 +153,3 @@ bool EnterFile::is_operator(char ch){
     }
     return false;
 }
-

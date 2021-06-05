@@ -21,6 +21,7 @@ public:
     bool check_file(std::string);
     bool check_expression(std::string);
     bool is_operator(char);
+    std::string before_equal(std::string);
 
 private slots:
     void on_pushButton_clicked();

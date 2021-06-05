@@ -14,7 +14,7 @@ class saveFile : public QDialog
     Q_OBJECT
 
 public:
-    explicit saveFile(QWidget *parent = nullptr, std::string result = "", std::string expression = "", int divides = 0, int depth = 0);
+    explicit saveFile(QWidget *parent = nullptr, std::string result = "", std::string expression = "", int divides = 0, int depth = 0, double low = 0, double up = 0);
     ~saveFile();
 
 private slots:
@@ -24,6 +24,7 @@ private:
     Ui::saveFile *ui;
     std::string file_name, expression, result;
     int divides, depth;
+    double a, b;
 };
 
 #endif // SAVEFILE_H

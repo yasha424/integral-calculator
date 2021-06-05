@@ -12,6 +12,9 @@ double Riemann(Tree *tree, double a, double b, double eps, bool &defined, size_t
         } catch (std::runtime_error& e) {
             defined = false;
         }
+        if (stat > 22){
+            return left + right;
+        }
         if (abs(left + right - mid) <= eps){
             if (level < stat){
                 level = stat;
@@ -36,6 +39,9 @@ double Trapezoidal(Tree *tree, double a, double b, double eps, bool &defined, si
         }  catch (std::runtime_error& e) {
             defined = false;
         }
+        if (stat > 22){
+            return left + right;
+        }
         if (abs(left + right - mid) <= eps){
             if (level < stat){
                 level = stat;
@@ -59,6 +65,9 @@ double Simpson(Tree *tree, double a, double b, double eps, bool &defined, size_t
             mid = sub_simpson(tree, a, b);
         }  catch (std::runtime_error& e) {
             defined = false;
+        }
+        if (stat > 22){
+            return left + right;
         }
         if (abs(left + right - mid) <= eps){
             if (level < stat){

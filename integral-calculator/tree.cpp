@@ -97,7 +97,7 @@ double Tree::evaluate(Node *node, double x){
         }
     } else {
         if ((r_sub_tree < 0 && l_sub_tree != (int)l_sub_tree) || (r_sub_tree == 0 && l_sub_tree < -1) || l_sub_tree > 50 ||
-             (abs(r_sub_tree) > 20 && abs(l_sub_tree) > 5) || (abs(r_sub_tree) > 10 && abs(l_sub_tree) > 25)){
+             (abs(r_sub_tree) > 20 && abs(l_sub_tree) > 10) || (abs(r_sub_tree) > 10 && abs(l_sub_tree) > 25)){
             throw std::runtime_error("Math error: Negative number in square root");
         } else {
             return pow(r_sub_tree, l_sub_tree);

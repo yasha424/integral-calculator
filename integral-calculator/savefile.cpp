@@ -1,7 +1,7 @@
 #include "savefile.h"
 #include "ui_savefile.h"
 
-saveFile::saveFile(QWidget *parent, std::string res, std::string exp, int divides, int depth) :
+saveFile::saveFile(QWidget *parent, std::string res, std::string exp, int divides, int depth, double low, double up) :
     QDialog(parent),
     ui(new Ui::saveFile)
 {
@@ -10,6 +10,8 @@ saveFile::saveFile(QWidget *parent, std::string res, std::string exp, int divide
     result = res;
     this->divides = divides;
     this->depth = depth;
+    a = low;
+    b = up;
 }
 
 saveFile::~saveFile()
@@ -27,8 +29,9 @@ void saveFile::on_pushButton_clicked()
     }
     std::ofstream out(file_name);
     if(out){
-        out << expression << " = " << result << '\n' <<
-               "Кількість розбиттів функції: " << divides <<
+        out << expression << " = " << result << '\n' << "Нижня межа: " <<
+                a << "\nВерхня межа: "<< b <<
+               "\nКількість розбиттів функції: " << divides <<
                "\nМаксимальна глибина рекурсії: " << depth;
         this->close();
     } else {
