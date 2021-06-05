@@ -41,7 +41,7 @@ Result::Result(QWidget *parent, std::string str, double lower, double upper, int
                 ui->depth->setText(" Глибина рекурсії: " + QString::number(depth));
                 ui->divided->setText(" Кількість розбиття підінтегральної функціії: \n " + QString::number(calls));
 
-                if (depth == 22){
+                if (depth == 22 && calls > 8000000){
                     ui->depth->setStyleSheet("QLabel { border-radius: 6px;"
                                                       "background-color: rgb(0,0,0);"
                                                       "border-style:inset;"
@@ -69,11 +69,12 @@ Result::~Result()
 
 //функція, в якій обраховується 100 точок графіка, для побудови графіка
 void Result::make_graph(){
-      QVector<double> x(101), y(101);
-      double step = (b - a) / 100;
+    int size = (b - a) * 100;
+      QVector <double> x(size), y(size);
+      double step = (b - a) / size;
       double curr = a;
       double min = DBL_MAX, max = -DBL_MAX;
-      for (int i = 0; i <= 100; i++)
+      for (int i = 0; i < size; i++)
       {
         x[i] = curr;
         y[i] = tree->evaluate(curr);
@@ -92,8 +93,8 @@ void Result::make_graph(){
       ui->graphic->graph(0)->setBrush(QBrush(QColor(0, 0, 255, 20)));
       ui->graphic->xAxis->setLabel("x");
       ui->graphic->yAxis->setLabel("y");
-      ui->graphic->xAxis->setRange(a-1, b+1);
-      ui->graphic->yAxis->setRange(min-1, max+1);
+      ui->graphic->xAxis->setRange(a - (b - a) * 0.1, b + (b - a) * 0.1);
+      ui->graphic->yAxis->setRange(min - (max - min) * 0.1, max + (max - min) * 0.1);
       ui->graphic->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
 }
 

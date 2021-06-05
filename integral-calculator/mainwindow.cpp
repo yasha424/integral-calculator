@@ -14,6 +14,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->integral_sign->setPixmap(q);
     r = NULL;
     enter = NULL;
+
+    setShortcuts();
+
 }
 
 MainWindow::~MainWindow() {
@@ -429,3 +432,28 @@ void MainWindow::on_file_clicked()
     }
 }
 
+void MainWindow::setShortcuts(){
+    new QShortcut(QKeySequence(Qt::Key_Equal), this, SLOT(on_equal_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Return), this, SLOT(on_equal_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_X), this, SLOT(on_x_but_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_1), this, SLOT(on_one_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_2), this, SLOT(on_two_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_3), this, SLOT(on_three_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_4), this, SLOT(on_four_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_5), this, SLOT(on_five_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_6), this, SLOT(on_six_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_7), this, SLOT(on_seven_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_8), this, SLOT(on_eight_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_9), this, SLOT(on_nine_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_0), this, SLOT(on_zero_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Plus), this, SLOT(on_plus_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Minus), this, SLOT(on_minus_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Slash), this, SLOT(on_divide_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Asterisk), this, SLOT(on_mult_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_AsciiCircum), this, SLOT(on_pow_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Backspace), this, SLOT(on_delet_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_Period), this, SLOT(on_dot_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_P), this, SLOT(on_pi_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_ParenLeft), this, SLOT(on_openBracket_clicked()));
+    new QShortcut(QKeySequence(Qt::Key_ParenRight), this, SLOT(on_closeBracket_clicked()));
+}

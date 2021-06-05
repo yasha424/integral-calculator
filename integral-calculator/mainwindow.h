@@ -4,6 +4,8 @@
 #pragma once
 #include <QMainWindow>
 #include <QWidget>
+#include <QShortcut>
+#include <QAction>
 #include "result.h"
 #include "enterfile.h"
 
@@ -88,6 +90,8 @@ private slots:
     void check_length();
 
     void on_file_clicked();
+
+    void setShortcuts();
 
 private:
     Ui::MainWindow *ui;
